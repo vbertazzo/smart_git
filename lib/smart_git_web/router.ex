@@ -14,11 +14,9 @@ defmodule SmartGitWeb.Router do
   #   plug :accepts, ["json"]
   # end
 
-  scope "/", SmartGitWeb do
-    pipe_through :browser
-
-    get "/", PageController, :index
-  end
+  # scope "/", SmartGitWeb do
+  #   pipe_through :browser
+  # end
 
   # Other scopes may use custom stacks.
   # scope "/api", SmartGitWeb do
