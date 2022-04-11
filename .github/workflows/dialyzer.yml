@@ -30,6 +30,10 @@ jobs:
           path: |
             priv/plts
 
+      - name: Install mix dependencies
+        if: steps.mix-cache-format.outputs.cache-hit != 'true'
+        run: mix deps.get
+
       - name: Create PLTs
         if: steps.plt_cache.outputs.cache-hit != 'true'
         run: mix dialyzer --plt
