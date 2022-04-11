@@ -10,7 +10,7 @@ jobs:
         elixir: [1.13]
         otp: [24]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Set up Elixir
         id: beam
@@ -19,14 +19,15 @@ jobs:
           elixir-version: ${{ matrix.elixir }}
           otp-version: ${{ matrix.otp }}
       
-      - uses: actions/cache@v2
-        id: mix-cache-format
+      - name: Dependencies cache
+        uses: actions/cache@v3
+        id: mix-cache
         with:
           path: deps
           key: ${{ runner.os }}-${{ steps.beam.outputs.elixir-version }}-${{ steps.beam.outputs.otp-version }}-mix-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
 
       - name: Install Mix Dependencies
-        if: steps.mix-cache-format.outputs.cache-hit != 'true'
+        if: steps.mix-cache.outputs.cache-hit != 'true'
         run: mix deps.get
           
       - name: Run mix format 
