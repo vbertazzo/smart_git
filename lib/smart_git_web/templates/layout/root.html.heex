@@ -16,7 +16,8 @@
     </script>
   </head>
 
-  <body>
+  <body class="p-8 bg-gray-100">
+    <%= render(SmartGitWeb.SharedView, "header.html", assigns) %>
     <%= @inner_content %>
   </body>
 </html>
