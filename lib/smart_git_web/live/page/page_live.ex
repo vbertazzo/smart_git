@@ -6,7 +6,7 @@ defmodule SmartGitWeb.PageLive do
   alias SmartGitWeb.Page.RepoDetail
 
   def mount(_params, _session, socket) do
-    repos = GithubApi.get_repos()
+    {:ok, repos} = GithubApi.get_repos()
     {:ok, socket |> assign(repos: repos)}
   end
 end
