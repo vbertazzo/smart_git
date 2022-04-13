@@ -1,13 +1,13 @@
 <li id={@id} class="p-8 rounded-md hover:bg-blue-50 hover:transition-all">
   <div class="flex space-x-8">
     <img
-      src="https://avatars.githubusercontent.com/u/98585563?s=200&v=4"
-      alt="logo"
+      src={@repo.avatar_url}
+      alt={@repo.name <> " avatar"}
       class="h-12 w-12 rounded-full"
     />
     <div class="flex-1 space-y-1">
       <div class="flex items-center justify-between">
-        <h3 class="text-xl font-medium" data-role="language" data-id={@id}>Elixir language</h3>
+        <h2 class="text-xl font-medium" data-role="language" data-id={@id}><%= @repo.full_name %></h2>
 
         <div class="flex items-end space-x-1 text-gray-500">
           <svg
@@ -31,20 +31,30 @@
           </svg>
 
           <p class="text-md text-gray-500" data-role="watcher" data-id={@id}>
-            Watchers: <span class="font-semibold">500</span>
+            Watchers: <span class="font-semibold"><%= @repo.watchers_count %></span>
           </p>
         </div>
       </div>
 
       <div class="flex items-center justify-between" data-role="description" data-id={@id}>
-        <h3 class="text-md font-medium">Description</h3>
-        <a href="#" data-role="button-action" data-id={@id} phx-click="add-repo" phx-target={@myself}>button add/go</a>
+        <h3 class="text-md font-medium"><%= @repo.description %></h3>
+        <a
+          href="#"
+          data-role="button-action"
+          data-id={@id}
+          phx-click="add-repo"
+          phx-target={@myself}
+        >
+          button add/go
+        </a>
       </div>
 
       <%= if @message != nil do %>
-      <div class="flex items-center justify-end">
-        <h3 class="text-md font-medium text-green-700" data-role="show-message" data-id={@id}>Repo added!</h3>
-      </div>
+        <div class="flex items-center justify-end">
+          <h3 class="text-md font-medium text-green-700" data-role="show-message" data-id={@id}>
+            Repo added!
+          </h3>
+        </div>
       <% end %>
     </div>
   </div>
