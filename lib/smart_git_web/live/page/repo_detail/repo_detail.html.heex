@@ -7,7 +7,7 @@
     />
     <div class="flex-1 space-y-1">
       <div class="flex items-center justify-between">
-        <h3 class="text-xl font-medium">Elixir language</h3>
+        <h3 class="text-xl font-medium" data-role="language" data-id={@id}>Elixir language</h3>
 
         <div class="flex items-end space-x-1 text-gray-500">
           <svg
@@ -30,20 +30,22 @@
             />
           </svg>
 
-          <p class="text-md text-gray-500">
+          <p class="text-md text-gray-500" data-role="watcher" data-id={@id}>
             Watchers: <span class="font-semibold">500</span>
           </p>
         </div>
       </div>
 
-      <div class="flex items-center justify-between">
+      <div class="flex items-center justify-between" data-role="description" data-id={@id}>
         <h3 class="text-md font-medium">Description</h3>
-        <a href="#">button add/go</a>
+        <a href="#" data-role="button-action" data-id={@id} phx-click="add-repo" phx-target={@myself}>button add/go</a>
       </div>
 
+      <%= if @message != nil do %>
       <div class="flex items-center justify-end">
-        <h3 class="text-md font-medium text-green-700">Repo added!</h3>
+        <h3 class="text-md font-medium text-green-700" data-role="show-message" data-id={@id}>Repo added!</h3>
       </div>
+      <% end %>
     </div>
   </div>
 </li>
