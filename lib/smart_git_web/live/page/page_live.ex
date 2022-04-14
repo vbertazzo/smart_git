@@ -30,6 +30,16 @@ defmodule SmartGitWeb.PageLive do
 
   def handle_event("select-language", %{"language" => language}, socket) do
     socket = push_redirect(socket, to: Routes.page_path(socket, :index, language: language))
+
+    {:noreply, socket}
+  end
+
+  def handle_event("load-repos", _, socket) do
+    socket =
+      socket
+      |> update(:page, fn page -> page + 1 end)
+      |> load_repos()
+
     {:noreply, socket}
   end
 
