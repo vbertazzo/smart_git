@@ -9,6 +9,7 @@ defmodule SmartGit.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
+      elixirc_options: [warnings_as_errors: true],
       aliases: aliases(),
       deps: deps(),
       test_coverage: [tool: ExCoveralls],
