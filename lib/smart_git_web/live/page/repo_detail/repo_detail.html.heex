@@ -1,13 +1,11 @@
 <li id={@id} class="p-8 rounded-md hover:bg-blue-50 hover:transition-all">
   <div class="flex space-x-8">
-    <img
-      src={@repo.avatar_url}
-      alt={@repo.name <> " avatar"}
-      class="h-12 w-12 rounded-full"
-    />
+    <img src={@repo.avatar_url} alt={@repo.name <> " avatar"} class="h-12 w-12 rounded-full" />
     <div class="flex-1 space-y-1">
       <div class="flex items-center justify-between">
-        <h2 class="text-xl font-medium" data-role="language" data-id={@id}><%= @repo.full_name %></h2>
+        <h2 class="text-xl font-medium" data-role="language" data-id={@id}>
+          <%= @repo.full_name %>
+        </h2>
 
         <div class="flex items-end space-x-1 text-gray-500">
           <svg
