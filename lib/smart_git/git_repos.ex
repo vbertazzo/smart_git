@@ -8,4 +8,6 @@ defmodule SmartGit.GitRepos do
     |> GitRepo.changeset(repo)
     |> Repo.insert()
   end
+
+  def all, do: Repo.all(GitRepo)
 end

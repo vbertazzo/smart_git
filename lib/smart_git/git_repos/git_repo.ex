@@ -8,6 +8,7 @@ defmodule SmartGit.GitRepos.GitRepo do
     :avatar_url,
     :description,
     :forks,
+    :full_name,
     :git_id,
     :language,
     :name,
@@ -23,6 +24,7 @@ defmodule SmartGit.GitRepos.GitRepo do
     field :avatar_url, :string
     field :description, :string
     field :forks, :integer
+    field :full_name, :string
     field :git_id, :integer
     field :language, :string
     field :name, :string

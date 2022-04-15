@@ -1,0 +1,7 @@
+<div id="my-repos" class="bg-white w-full rounded-lg shadow p-4">
+  <ul class="divide-y divide-gray-200">
+    <%= for repo <- @repos do %>
+      <%= live_component(RepoDetail, id: "my-repo-#{repo.git_id}", repo: repo) %>
+    <% end %>
+  </ul>
+</div>

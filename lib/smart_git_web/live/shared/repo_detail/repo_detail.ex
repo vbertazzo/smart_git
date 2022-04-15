@@ -1,4 +1,4 @@
-defmodule SmartGitWeb.Page.RepoDetail do
+defmodule SmartGitWeb.Shared.RepoDetail do
   @moduledoc false
 
   use SmartGitWeb, :live_component

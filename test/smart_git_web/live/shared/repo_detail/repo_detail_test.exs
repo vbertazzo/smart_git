@@ -1,4 +1,4 @@
-defmodule SmartGitWeb.Page.RepoDetailTest do
+defmodule SmartGitWeb.Shared.RepoDetailTest do
   use SmartGitWeb.ConnCase
   import Phoenix.LiveViewTest
 
