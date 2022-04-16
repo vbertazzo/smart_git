@@ -14,7 +14,14 @@ defmodule SmartGit.GitRepos do
 
   def get_saved_repos do
     GitRepo
-    |> select([g], g.git_id)
+    |> select([r], r.git_id)
     |> Repo.all()
+  end
+
+  def get_by_git_id(id) do
+    case Repo.get_by(GitRepo, git_id: id) do
+      nil -> {:error, :not_found}
+      repo -> {:ok, repo}
+    end
   end
 end
